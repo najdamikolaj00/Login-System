@@ -29,8 +29,6 @@ void System::registration()
     {
         std:: cout << "new nickname: ";
         std:: cin >> nickname_;
-        std:: cout << "new password: ";
-        std:: cin >> password_;
 
         std::string temp_nickname;
         std::string temp_password;
@@ -45,6 +43,8 @@ void System::registration()
             }
         }
         checkFile.close();
+        std:: cout << "new password: ";
+        std:: cin >> password_;
 
         outFile << nickname_ << "," << password_ << std:: endl;
         outFile.close();

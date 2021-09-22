@@ -1,2 +1,2 @@
 # Login-System
-Login system using C++ and MySQL
+Login system using C++

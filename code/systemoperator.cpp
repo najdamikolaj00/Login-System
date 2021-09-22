@@ -19,23 +19,69 @@ System::~System()
 }
 void System::registration()
 {
-    //1.check if file with this nickname exist
-    //2.if not create this file (nickname.txt) and save password there
-    //3.if file with this nickname exist say that this nickname is not free to use
-    //4.than do it unless user create free nickname
-    //5.than go to 2 point
-    //6.after registration go to login()
-    std:: cout << "new nickname: ";
-    std:: cin >> nickname_;
-    std:: cout << "new password: ";
-    std:: cin >> password_;
-    
+    // std:: ofstream outFile;
+    // outFile.open("credentials.csv", std::ios_base::app);
+    // if (!outFile.is_open())
+    // {
+    //     exit(EXIT_FAILURE);
+    // }
 
+    std:: cout << "new nickname: ";
+    std::string nickname_temp;
+    std:: cin >> nickname_temp;
+
+    std::string temp_nickname;
+
+    std:: ifstream checkFile;
+    checkFile.open("credentials.csv");
+    while(getline(checkFile, temp_nickname, ','))
+    {
+        if (temp_nickname.compare(nickname_temp) == 0)
+        {
+            std::cout << "nickname already exists." << std::endl;
+            registration();
+        }
+    }
+    checkFile.close();
+
+    // std:: cout << "new password: ";
+    // std:: cin >> password_;
+
+    // outFile << nickname_ << "," << password_ << std:: endl;
+    // outFile.close();
 }
 void System::login()
 {
-    std:: cout << "new nickname: ";
+    std:: cout << "nickname: ";
     std:: cin >> nickname_;
-    std:: cout << "new password: ";
+    std:: cout << "password: ";
     std:: cin >> password_;
+
+    std:: ifstream outFile;
+    outFile.open("credentials.csv");
+
+    if(!outFile.is_open())
+    {
+        std::cout << "ERROR: File Open" << std::endl;
+        exit;
+    }
+    std::string temp_nickname;
+    std::string temp_password;
+    while(getline(outFile, temp_nickname, ',') && getline(outFile, temp_password, '\n'))
+    {
+        if (temp_nickname.compare(nickname_) == 0)
+        {
+            if (temp_password.compare(password_) == 0)
+            {
+            std::cout <<"Successfull login." << std::endl;
+            break;
+            }
+            else
+            {
+            std::cout << "Wrong password." << std::endl;
+            exit;
+            }
+        }
+    }
+    
 }

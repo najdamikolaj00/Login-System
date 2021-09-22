@@ -19,36 +19,36 @@ System::~System()
 }
 void System::registration()
 {
-    // std:: ofstream outFile;
-    // outFile.open("credentials.csv", std::ios_base::app);
-    // if (!outFile.is_open())
-    // {
-    //     exit(EXIT_FAILURE);
-    // }
-
-    std:: cout << "new nickname: ";
-    std::string nickname_temp;
-    std:: cin >> nickname_temp;
-
-    std::string temp_nickname;
-
-    std:: ifstream checkFile;
-    checkFile.open("credentials.csv");
-    while(getline(checkFile, temp_nickname, ','))
+    std:: ofstream outFile;
+    outFile.open("credentials.csv", std::ios_base::app);
+    if (!outFile.is_open())
     {
-        if (temp_nickname.compare(nickname_temp) == 0)
-        {
-            std::cout << "nickname already exists." << std::endl;
-            registration();
-        }
+        exit(EXIT_FAILURE);
     }
-    checkFile.close();
+    else
+    {
+        std:: cout << "new nickname: ";
+        std:: cin >> nickname_;
+        std:: cout << "new password: ";
+        std:: cin >> password_;
 
-    // std:: cout << "new password: ";
-    // std:: cin >> password_;
+        std::string temp_nickname;
+        std::string temp_password;
+        std:: ifstream checkFile;
+        checkFile.open("credentials.csv");
+        while(getline(checkFile, temp_nickname, ',') && getline(checkFile, temp_password, '\n'))
+        {   
+            if (temp_nickname.compare(nickname_) == 0)
+            {
+                std::cout << "nickname already exists." << std::endl;
+                exit(1);
+            }
+        }
+        checkFile.close();
 
-    // outFile << nickname_ << "," << password_ << std:: endl;
-    // outFile.close();
+        outFile << nickname_ << "," << password_ << std:: endl;
+        outFile.close();
+    }
 }
 void System::login()
 {

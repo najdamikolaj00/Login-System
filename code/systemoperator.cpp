@@ -47,7 +47,7 @@ void System::registration()
             }
         }
         checkFile.close();
-        std:: cout << "new password 2: ";
+        std:: cout << "new password: ";
         std:: cin >> password_;
 
         outFile << nickname_ << "," << password_ << std::endl;

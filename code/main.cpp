@@ -1,9 +1,3 @@
-//First step: Program will ask if you want to register or login 
-//Second step: registration() --> data will be stored in .txt file (temp)
-//Third step: login() --> check if nickname and password is correct and give the response
-//Fourth step: 
-//First step: 
-//First step: 
 #include <iostream>
 #include "systemoperator.cpp"
 int request();

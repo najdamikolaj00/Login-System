@@ -3,7 +3,5 @@
 login and logout function also after login there should be any kind of actions possibilities for user.</h3>
 <h3>To do list:</h3>
 <ul>
-    <li>Actions after wrong nickname during registration</li>
-    <li>Error failure after wrong choice 1||2</li>
-    <li>Inheritance of request function</li>
+    <li>Add some algorithms and data structures which are going to use credentials.csv and compare them with temp (login) values</li>
 </ul>

@@ -15,6 +15,7 @@ class System
         ~System();
         void registration();
         void login();
+        friend int request();
 };
 #endif
 

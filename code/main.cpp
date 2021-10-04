@@ -4,8 +4,8 @@ int request();
 
 int main()
 {
-    int response = request();
     System user;
+    int response = request();
 
     if (response == 1)
         user.registration();
@@ -13,15 +13,4 @@ int main()
         user.login();    
 
     return 0;
-}
-int request()
-{
-    //make it with this heritence or whatever
-    std:: cout << "registration: 1" << std:: endl;
-    std:: cout << "login: 2" << std:: endl;
-    std:: cout << "choice: ";
-
-    int choice;
-    std:: cin >> choice;
-    return choice;
 }

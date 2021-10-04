@@ -94,3 +94,13 @@ void System::login()
         }
     }
 }
+int request()
+{
+    std:: cout << "registration: 1" << std:: endl;
+    std:: cout << "login: 2" << std:: endl;
+    std:: cout << "choice: ";
+
+    int choice;
+    std:: cin >> choice;
+    return choice;
+}

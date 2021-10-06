@@ -11,7 +11,7 @@ class System
         std::string password_;
     public:
         System();
-        System(std::string nickname, std::string password);
+        explicit System(std::string nickname, std::string password);
         ~System();
         void registration();
         void login();

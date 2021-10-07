@@ -5,8 +5,8 @@ int request();
 int main()
 {
     System user;
-    int response = request();
-
+    
+    int response = System::request();
     if (response == 1)
         user.registration();
     else

@@ -5,6 +5,18 @@
 
 const int MAX_LOGIN_ATTEMPTS = 3;
 
+int System::request()
+{
+    std:: cout << "registration: 1" << std:: endl;
+    std:: cout << "login: 2" << std:: endl;
+    std:: cout << "choice: ";
+
+    int choice;
+    std:: cin >> choice;
+    return choice;
+}
+
+
 System::System()
 {
     std::string nickname = "nonickname";
@@ -94,7 +106,7 @@ void System::login()
         }
     }
 }
-// friend int request()
+// friend///// int request()
 // {
 //     std:: cout << "registration: 1" << std:: endl;
 //     std:: cout << "login: 2" << std:: endl;

@@ -4,13 +4,15 @@ int request();
 
 int main()
 {
-    System user;
+    System *user = new System();
     
     int response = System::request();
     if (response == 1)
-        user.registration();
+        user->registration();
     else
-        user.login();    
+        user->login();
+
+    delete user;    
 
     return 0;
 }

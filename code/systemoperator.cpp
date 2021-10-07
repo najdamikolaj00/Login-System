@@ -15,8 +15,6 @@ int System::request()
     std:: cin >> choice;
     return choice;
 }
-
-
 System::System()
 {
     std::string nickname = "nonickname";

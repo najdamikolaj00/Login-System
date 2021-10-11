@@ -97,6 +97,7 @@ void System::login()
         std::string temp_password;
         while(getline(outFile, temp_nickname, ',') && getline(outFile, temp_password, '\n'))
         {
+
             if (temp_nickname.compare(pt_nickname_) == 0)
             {
                 if (temp_password.compare(pt_password_) == 0)
@@ -108,7 +109,7 @@ void System::login()
                 else
                 {
                     std::cout << "Wrong password or login." << std::endl;
-                    continue;
+                    exit(0);
                 }
             }
         }

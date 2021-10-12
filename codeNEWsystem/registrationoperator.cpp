@@ -47,6 +47,7 @@ void Registration::registration()
     }
     else
     {
+        store();
         std:: cout << "new nickname: ";
         std:: cin >> pt_nickname_;
 
@@ -55,15 +56,18 @@ void Registration::registration()
 
         std:: ifstream checkFile;
         checkFile.open("credentials.csv");
-
-        while(getline(checkFile, temp_nickname, ',') && getline(checkFile, temp_password, '\n'))
-        {   
-            if (temp_nickname.compare(pt_nickname_) == 0)
+        
+        while (!nicknames_.empty()) 
+        {
+            if (nicknames_.front().compare(pt_nickname_) == 0)
             {
                 std::cout << "nickname already exists." << std::endl;
                 registration();
             }
+            nicknames_.pop();
+            passwords_.pop();
         }
+
         checkFile.close();
         std:: cout << "new password: ";
         std:: cin >> pt_password_;

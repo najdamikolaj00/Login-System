@@ -3,8 +3,9 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include "credentialsqueue.h"
 
-class Login
+class Login: public virtual Queue
 {
     private:
         char *pt_nickname_;

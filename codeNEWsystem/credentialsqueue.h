@@ -6,9 +6,10 @@
 class Queue
 {
     private:
+        
+    public:
         std::queue <std::string> nicknames_;
         std::queue <std::string> passwords_;
-    public:
         Queue();
         ~Queue();
         void store();

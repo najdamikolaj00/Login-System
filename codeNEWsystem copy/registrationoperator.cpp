@@ -17,10 +17,10 @@ int Registration::request()
 }
 Registration::Registration()
 {
-    nickname_len_ = 4;
-    password_len_ = 4;
-    pt_nickname_ = new char[1];
-    pt_password_ = new char[1];
+    nickname_len_ = 20;
+    password_len_ = 20;
+    pt_nickname_ = new char[20];
+    pt_password_ = new char[20];
     pt_nickname_[0] = '\0';
     pt_password_[0] = '\0';
 }
@@ -88,6 +88,7 @@ void Registration::registration()
                     password[count] = key;
                     count += 1;
                     std::cout << "*";
+                    continue;
                 }
                 continue;
             }
@@ -101,6 +102,7 @@ void Registration::registration()
                 {
                     std::cout << "*";
                     password[count] = key;
+                    password[count + 1] = '\0';
                     count += 1;
                 }
                 else if (count == 20)
@@ -110,19 +112,13 @@ void Registration::registration()
 
             }
         }
-        int length = strlen(password);
-        if(length != 0)
-        {
-            password[length - 1] = '\0';
-        }
-        
         std::strcpy(pt_password_, password);
         delete [] password;
         
         outFile << pt_nickname_ << "," << pt_password_ << std::endl;
         outFile.close();
         std:: cout << std::endl << "Succesfully registration!" << std::endl;
-        login();
+        login_attempt();
         
     }
 }

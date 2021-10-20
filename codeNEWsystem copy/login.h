@@ -18,5 +18,6 @@ class Login: public virtual Queue
         Login(const Login &);
         ~Login();
         void login();
+        void login_attempt();
 };
 #endif

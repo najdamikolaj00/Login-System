@@ -40,6 +40,7 @@ void Registration::registration_attempt()
     if (MAX_REGISTRATION_ATTEMPTS == 0)
     {
         std::cout << "Registration attempt failed" << std::endl;
+        getch();
         exit(1);
     }
     MAX_REGISTRATION_ATTEMPTS -= 1;

@@ -30,6 +30,7 @@ void Login::login_attempt()
     if (MAX_LOGIN_ATTEMPTS == 0)
     {
         std::cout << "Login attempt failed" << std::endl;
+        getch();
         exit(1);
     }
     MAX_LOGIN_ATTEMPTS -= 1;
@@ -87,24 +88,22 @@ void Login::login()
     std::strcpy(pt_password_, password);
     delete [] password;
     
-    while (!nicknames_.empty()) 
+    while (!passwords_.empty()) 
     {
         
-        if (nicknames_.front().compare(pt_nickname_) == 0)
+        if (passwords_.front().compare(pt_password_) == 0)
         {
-            if (passwords_.front().compare(pt_password_) == 0)
-            {
-                std::cout << std::endl <<"Successfull login." << std::endl;
-                //przejście do panelu sterowania, na razie exit(0)
-                exit(0);
-            }
-            else
-            {
-                std::cout << std::endl << "Wrong password or login." << std::endl;
-                login_attempt();
-            }
+            std::cout << std::endl <<"Successfull login." << std::endl;
+            //przejście do panelu sterowania, na razie exit(0)
+            getch();
+            exit(0);
         }
-        nicknames_.pop();
+        else
+        {
+            std::cout << std::endl << "Wrong password or login." << std::endl;
+            login_attempt();
+        }
+        
         passwords_.pop();
     }
     

@@ -1,8 +1,5 @@
 #ifndef REGISTRATION_H_
 #define REGISTRATION_H_
-#include <string>
-#include <fstream>
-#include <iostream>
 #include "login.h"
 
 class Registration: public Login
@@ -19,6 +16,7 @@ class Registration: public Login
         ~Registration();
         void registration();
         static int request();
+        void registration_attempt();
 };
 #endif
 

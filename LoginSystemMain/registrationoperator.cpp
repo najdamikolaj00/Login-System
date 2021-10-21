@@ -1,9 +1,6 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstring>
-#include <conio.h>
 #include "registration.h"
+
+int MAX_REGISTRATION_ATTEMPTS  = 3;
 
 int Registration::request()
 {
@@ -37,6 +34,16 @@ Registration::~Registration()
 {
     delete [] pt_nickname_;
     delete [] pt_password_;
+}
+void Registration::registration_attempt()
+{
+    if (MAX_REGISTRATION_ATTEMPTS == 0)
+    {
+        std::cout << "Registration attempt failed" << std::endl;
+        exit(1);
+    }
+    MAX_REGISTRATION_ATTEMPTS -= 1;
+    registration();
 }
 void Registration::registration()
 {
@@ -111,6 +118,11 @@ void Registration::registration()
                 }
 
             }
+        }
+        if (std::strlen(password) < 8)
+        {
+            std:: cout << std::endl << "Password too short. Try to include at least 8 characters" << std::endl;
+            registration_attempt();
         }
         std::strcpy(pt_password_, password);
         delete [] password;

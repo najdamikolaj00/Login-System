@@ -1,4 +1,3 @@
-#include <iostream>
 #include "registrationoperator.cpp"
 #include "loginoperator.cpp"
 #include "credentialsqueueoperator.cpp"
@@ -9,9 +8,9 @@ int main()
     
     int response = Registration::request();
     if (response == 1)
-        user->registration();
+        user->registration_attempt();
     else
-        user->login();
+        user->login_attempt();
 
     delete user;    
     

@@ -1,7 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <conio.h>
 #include "login.h"
 
 int MAX_LOGIN_ATTEMPTS  = 3;
@@ -31,17 +27,17 @@ Login::~Login()
 }
 void Login::login_attempt()
 {
-    MAX_LOGIN_ATTEMPTS -= 1;
     if (MAX_LOGIN_ATTEMPTS == 0)
     {
         std::cout << "Login attempt failed" << std::endl;
         exit(1);
     }
+    MAX_LOGIN_ATTEMPTS -= 1;
+    store();
     login();
 }
 void Login::login()
 {
-    store();
     std:: cout << "nickname: ";
     std:: cin >> pt_nickname_;
     std:: cout << "password: ";
@@ -93,6 +89,7 @@ void Login::login()
     
     while (!nicknames_.empty()) 
     {
+        
         if (nicknames_.front().compare(pt_nickname_) == 0)
         {
             if (passwords_.front().compare(pt_password_) == 0)
